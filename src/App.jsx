@@ -1,45 +1,8 @@
-import { useState } from 'react'
-<<<<<<< HEAD
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
-
-export default App
-=======
 import MovieCard from "./components/MovieCard";
 import movieList from "./data/movieListData.json";
 import './index.scss'
 import logo from "./assets/logo.png"; 
-
+import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Grid } from "swiper/modules";
 import "swiper/css";
@@ -88,4 +51,3 @@ export default function App() {
     </main>
   );
 }
->>>>>>> b5fc9592ccdbc038835f0f418027191fd2ddeb4d

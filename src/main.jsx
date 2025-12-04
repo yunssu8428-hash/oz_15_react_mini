@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
-=======
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter,Routes, Route } from "react-router-dom";
@@ -27,4 +15,3 @@ createRoot(document.getElementById('root')).render(
     </Routes>
   </BrowserRouter>
 );
->>>>>>> b5fc9592ccdbc038835f0f418027191fd2ddeb4d
