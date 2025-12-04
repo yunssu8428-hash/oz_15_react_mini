@@ -1,0 +1,217 @@
+$bg-color-transparent: #050816;         //전체배경
+$accent-color: #fff;                    //포인트 컬러
+$card-bg: #050816;                      //카드 배경
+$shadow-light: rgba(249, 245, 245, 0.06);     //약한 그림자 설정
+$shadow-strong: rgba(231, 228, 228, 0.2);     //강한 그림자 설정
+$gap: 16px;                                // 기본 간격
+$padding: 16px;                            // 기본 패딩
+
+// body
+body {
+  margin: 0;                            // body 마진 제거 (기본여백삭제)
+  font-family: Arial, sans-serif;       // 전체 폰트
+  background: $bg-color-transparent;    // 배경색 위에서 가져옴
+}
+
+// NavBar
+.nav {
+  display: flex;                        //flex 정렬 
+  justify-content: space-between;       //좌, 중앙, 우 사이에 공간배분
+  align-items: center;                  //세로 가운데 정렬
+  padding: 12px 20px;                   
+  background: $card-bg;                 //카드배경 위에서 가져옴
+  box-shadow: 0 1px 6px $shadow-light;  //아래쪽 얇은 그림자
+  background-color: rgb(64, 92, 65);  //nav 배경을 덮음
+
+  .nav-left {                           
+    display: flex;                      //로고영역 flex
+    align-items: center;                //세로 가운데 정렬
+  }
+
+  .nav-logo {                           
+    display: flex;                       // 로고 이미지, 텍스트배치
+    align-items: center;                 
+    gap: 8px;                            //이미지와 텍스트 사이 간격
+    text-decoration: none;               //Link 밑줄 제거
+    color: #222;
+  }
+  
+
+  .nav-logo-img {
+    width: 80px;                         //로고 이미지 너비
+    height: 50px;                        // 높이
+    border-radius: 10%;                  //모서리 둥글게
+    object-fit: contain;                 //이미지 비율 유지
+     object-position: center;            
+    display: block;                      // 이미지 주변 불필요한 여백 제거
+  }
+  
+  .nav-title {
+    font-weight: 700;                     // 로고옆 타이틀
+    font-size: 18px;
+  }
+}
+
+.nav-center {
+  flex:1;                                  // 가로 공간 차지
+  display: flex;                           
+  justify-content: center;                 // 검색창 가운데 정렬
+  padding: 0 20px;                         // 좌우 여백
+}
+
+.nav-search {
+  width: 100%;                             //가로로 차지 가능한 공간 최대한 차지
+  max-width: 400px;                        //폭
+  padding: 6px 10px;                       //안쪽여백
+  border-radius: 999px;                    //검색창 모서리 둥글게
+  border: 1px solid #ccc;                // 옅은 테두리
+  font-size: 14px;
+  outline: none;                           
+}
+
+.nav-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.nav-auth {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.nav-auth-btn {
+  padding: 4px 10px;
+  font-size: 13px;
+  border-radius: 999px;
+  border: 1px solid  #fff;
+  background:  gray;
+  cursor: pointer;
+
+  &.primary {
+    background: gray;
+    color: black;
+    border-color: #fff;
+  }
+}
+
+  .nav-links {
+    display: flex;
+    gap: 12px;
+  }
+  .nav-link-item {
+    text-decoration: none;
+  }
+
+  .nav-link-box {
+    height: 32px;
+    padding: 0 12px;
+    border-radius: 999px;
+    background: gray;
+    border: 1px solid #fff;
+    font-size: 14px;
+    color: black;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    box-sizing: border-box;
+
+    &:hover {
+      color: #3f51b5;
+    }
+  }
+   
+
+// App
+main {
+  padding: 24px;
+
+  .title-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+
+
+    .movie_list {
+      margin: 0;
+    }
+  }
+
+  .movie-grid {
+    .swiper {
+    width: 100%;
+    padding: 0;
+  }
+
+  .swiper-slide {
+    // 한 슬라이드 안의 카드
+    display: flex;
+    justify-content: center; 
+  }
+
+    .movie-card {
+      background: $card-bg;
+      border-radius: 8px;
+      padding: 8px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: 0 2px 8px $shadow-light;
+
+      .poster {
+        width: 100%;
+        aspect-ratio: 2/3;
+        object-fit: cover;
+        border-radius: 6px;
+      }
+
+      .meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+}
+
+// MovieDetail 페이지
+.detail-wrapper {
+  .backdrop {
+    height: 450px;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.6);
+  }
+
+  .detail-content {
+    display: flex;
+    gap: 20px;
+    padding: 24px;
+    margin-top: 0px;
+    align-items: flex-start;
+
+    .detail-poster {
+      width: 220px;
+      height: 400px;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px $shadow-strong;
+      object-fit: cover;
+    }
+
+    .info {
+      background: $card-bg;
+      padding: $padding;
+      border-radius: 8px;
+      min-width: 0;
+      flex: 1;
+    }
+  }
+ }
+
