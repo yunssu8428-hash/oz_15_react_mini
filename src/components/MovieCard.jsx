@@ -7,35 +7,17 @@ export default function MovieCard({
   posterPath,
   title,
   rating,
-  tagline,
-  overview,
-  genres,
   runtime,
   release_date
 }){
     const navigate = useNavigate();
 
     const onClick = () => {
-      navigate("/details", {
-        state: {
-          movie:{
-          id,
-          title,
-          rating,
-          tagline,
-          overview,
-          genres,
-          runtime,
-          release_date,
-          posterPath: posterPath
-          }
-        }
-      });
-    };
+      navigate(`/details/${id}`);
+    }
 
     return (
-        <article className="movie-card" onClick={onClick}
-        role="button">
+        <article className="movie-card" onClick={onClick}role="button">
           <img
           src={posterPath ? `${IMAGE_BASE}${posterPath}` : "/placeholder.png"}
           alt={title}
@@ -43,7 +25,7 @@ export default function MovieCard({
           />
           <div className="meta">
             <h3 className="title">{title}</h3>
-            <span className="rating">{rating}</span>
+            <span className="rating">{rating?.toFixed?.(1)}</span>
           </div>
         </article>
     );

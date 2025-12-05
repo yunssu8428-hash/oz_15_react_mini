@@ -1,15 +1,41 @@
 import MovieCard from "./components/MovieCard";
-import movieList from "./data/movieListData.json";
+import { TMDB_BASE_URL, TMDB_API_KEY } from "./constants";
 import './index.scss'
-import logo from "./assets/logo.png"; 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Grid } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
+const options = { method: "GET", headers: { accept: "application/json" } };
+
 export default function App() {
-  const [movies] = useState(movieList.results || []);
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchMovies(){
+      try{                                        // 정상적인 호출
+        setLoading(true);
+        const res = await fetch(                    
+  `${TMDB_BASE_URL}/movie/popular?api_key=${TMDB_API_KEY}&language=ko-KR&page=1`,
+  { method: "GET", headers: { accept: "application/json" } }
+);
+        const data = await res.json();
+        setMovies(data.results || []); 
+      } catch (err){                                // 호출 실패시 에러로그
+        console.error("영화 목록 불러오기 실패;", err);
+      }finally{                                      //성공 실패 없이 빈화면 안나오게
+        setLoading(false);
+      }
+    }
+  
+  fetchMovies();
+  },[]);
+
+  if(loading){
+    return<p style={{ color:"white"}}>로딩 중...</p>;
+  }
 
   return (
     <main>
@@ -27,20 +53,13 @@ export default function App() {
          pagination={{ clickable: true }}         //
          style={{ paddingBottom: "20px" }}
        >
-
-      
-      
         {movies.map((movie)=> (
           <SwiperSlide key={movie.id}>
           <MovieCard
-            key={movie.id}
             id={movie.id}
             posterPath={movie.poster_path}
             title={movie.title}
             rating={movie.vote_average}
-            tagline={movie.tagline || "" }
-            overview={movie.overview}
-            genres={movie.genres}
             runtime={movie.runtime}
             release_date={movie.release_date}
           />
