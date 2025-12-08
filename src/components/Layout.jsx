@@ -4,7 +4,7 @@ import NavBar from "./NavBar";
 
 export default function Layout() {
   const [searchQuery, setSearchQuery] = useState("");
-  // 검색어를 여기서 받아서 NavBar에 값을 넘겨주고
+  // 검색어를 여기서 받아서 NavBar에 값을 넘겨줌
   
 
   return (

@@ -68,7 +68,7 @@ const [ debouncedQuery, setDebouncedQuery ] = useState("");
 
 
   fetchMovies();
-  },[debouncedQuery]);                  //debouncedQuery가 바뀔 때마다 호출 검색어 입력시  movie 호출 
+  },[debouncedQuery]);                  //이제 debouncedQuery가 바뀔 때마다 호출 검색어 입력시  movie 호출 
 
   if(loading){
     return<p style={{ color:"white"}}>로딩 중...</p>;

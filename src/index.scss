@@ -224,8 +224,9 @@ main {
     align-items: stretch;
     gap: 8px;
   }
-// 모바일 환경에 반응형css 적용 
+// 화면의 가로 너비가 768px 이하일 때만 적용되는 CSS 조건문(미디어 쿼리)
 // 가로 길이가 세로의 비율만큼 커지고 작아짐
+// colum으로 세로정렬 시키고 stretch는 세로정렬일때 가로너비 꽉채우는 역할
   .nav-left {
     justify-content: center;
   }
