@@ -165,6 +165,7 @@ main {
       flex-direction: column;
       gap: 8px;
       box-shadow: 0 2px 8px $shadow-light;
+      color: white;
 
       .poster {
         width: 100%;
@@ -197,6 +198,7 @@ main {
     padding: 24px;
     margin-top: 0px;
     align-items: flex-start;
+    color: white;
 
     .detail-poster {
       width: 220px;
@@ -215,4 +217,82 @@ main {
     }
   }
  }
+
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+// 화면의 가로 너비가 768px 이하일 때만 적용되는 CSS 조건문(미디어 쿼리)
+// 가로 길이가 세로의 비율만큼 커지고 작아짐
+// colum으로 세로정렬 시키고 stretch는 세로정렬일때 가로너비 꽉채우는 역할
+  .nav-left {
+    justify-content: center;
+  }
+
+  .nav-center {
+    order: 3;
+    width: 100%;
+    padding: 0;
+  }
+
+  .nav-search {
+    max-width: 100%;
+  }
+
+  .nav-right {
+    order: 2;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-auth {
+    margin-bottom: 0;
+  }
+
+  main {
+    padding: 12px;
+
+    .title-wrap {
+      margin-bottom: 12px;
+      text-align: center;
+
+      .movie_list {
+        font-size: 18px;
+      }
+    }
+
+    .movie-grid {
+      .movie-card {
+        padding: 6px;
+      }
+    }
+  }
+
+  .detail-wrapper {
+    .backdrop {
+      height: 260px;
+    }
+
+    .detail-content {
+      flex-direction: column;
+      align-items: center;
+      padding: 16px;
+      gap: 12px;
+
+      .detail-poster {
+        width: 60%;
+        max-width: 260px;
+        height: auto;
+      }
+
+      .info {
+        width: 100%;
+      }
+    }
+  }
+}
 
